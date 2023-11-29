@@ -1,0 +1,8 @@
+FROM alpine:3.13
+
+WORKDIR /opt/ae-copilot
+
+COPY ./bin/ae-copilot ./
+RUN rm -f /etc/localtime && ln -sv /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone
+EXPOSE 8080
+CMD ["./ae-copilot", "&"]
