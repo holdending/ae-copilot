@@ -25,7 +25,7 @@ on:
 
 # Environment variables available to all jobs and steps in this workflow.
 env:
-  REGION_ID: cn-shanghia
+  REGION_ID: cn-shanghai
   REGISTRY: registry.cn-shanghai.aliyuncs.com
   NAMESPACE: liveramp
   IMAGE: ae-copilot
