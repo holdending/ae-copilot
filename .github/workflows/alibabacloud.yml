@@ -29,6 +29,7 @@ env:
   REGISTRY: registry.cn-shanghai.aliyuncs.com
   NAMESPACE: liveramp
   IMAGE: ae-copilot
+  TAG: ${{ github.sha }}
  
 
 permissions:
@@ -54,8 +55,9 @@ jobs:
     # 1.2 Buid and push image to ACR
     - name: Build and push image to ACR
       run: |-
-         make build
-         make push
+        GOOS=linux GOARCH=amd64 go build -tags='$(BUILD_TAGS)' -o ./bin/ae-copilot  ./cmd
+        docker build -f ./cmd/Dockerfile.local -t "$REGISTRY/$NAMESPACE/$IMAGE:$TAG" .
+        docker push "$REGISTRY/$NAMESPACE/$IMAGE:$TAG"
 
   
    
