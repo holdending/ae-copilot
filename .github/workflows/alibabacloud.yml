@@ -53,7 +53,7 @@ jobs:
 
     # 1.1 Login to ACR
     - name: Login to ACR with the AccessKey pair
-      uses: 无月也疯狂/Welcome123
+      uses: liveramp/ae-copilot@v1
       with:
         region-id: "${{ env.REGION_ID }}"
         access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
